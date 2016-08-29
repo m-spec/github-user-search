@@ -1,18 +1,16 @@
-
-import { takeEvery, takeLatest } from 'redux-saga'
+import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
 
-// import {REQUEST_USER, addUser} from './UserState';
-import {INCREMENT, set} from '@modules/example/ExampleState';
-import {get} from "@utils/request"
+// import {REQUEST_USER, addUser} from './UserState'
+import { INCREMENT, set } from '@modules/example/ExampleState'
+import { get } from '@utils/request'
 
 
-export function* requestUser(action) {
-    const user = yield call(get, "https://randomuser.me/api")
-    console.log(user.results)
-    yield put(set(12))
+export function* requestUser() {
+  yield call(get, 'https://randomuser.me/api')
+  yield put(set(12))
 }
 
 export default function* UserSaga() {
-  yield* takeEvery(INCREMENT, requestUser);
+  yield* takeEvery(INCREMENT, requestUser)
 }

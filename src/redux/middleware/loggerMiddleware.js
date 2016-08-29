@@ -1,4 +1,4 @@
-import createLogger from 'redux-logger';
+import createLogger from 'redux-logger'
 
 // log actions in development mode
 export default createLogger({
@@ -15,4 +15,4 @@ export default createLogger({
     action && action.payload && action.payload.toJS
       ? {...action, payload: action.payload.toJS()}
       : action
-});
+})

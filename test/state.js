@@ -1,10 +1,8 @@
 // application root reducer
-import reducer from '@redux/reducer';
-
-console.log(reducer(null, {}))
+import reducer from '@redux/reducer'
 
 // Initial application state
-export const initialState = reducer(null, {});
+export const initialState = reducer(null, {})
 
 // Run an action through all reducers
-export const dispatch = (state, action) => reducer(state, action);
+export const dispatch = (state, action) => reducer(state, action)

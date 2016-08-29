@@ -1,5 +1,5 @@
-import createSagaMiddleware from "redux-saga"
-import RootSaga from "../rootSaga"
+import createSagaMiddleware from 'redux-saga'
+import RootSaga from '../rootSaga'
 
 const sagaMiddleware = createSagaMiddleware()
 
