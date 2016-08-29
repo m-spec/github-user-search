@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Proptypes } from 'react'
 // import "./example.css"
 
-const ExampleView = ({value, ...actions}) => (
+const ExampleView = ({ value, ...actions }) => (
   <div>
     <div>
       <button onClick={actions.subtractFive}>-5</button>
@@ -18,4 +18,8 @@ const ExampleView = ({value, ...actions}) => (
   </div>
 )
 
-export default ExampleView;
+ExampleView.propTypes = {
+  value: Proptypes.number
+}
+
+export default ExampleView

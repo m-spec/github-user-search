@@ -11,7 +11,7 @@ const reducers = {
 // initial state, accessor and mutator for supporting root-level
 // immutable data with redux-loop reducer combinator
 const immutableStateContainer = new Map()
-const getImmutable = (child, key) => child ? child.get(key) : void 0
+const getImmutable = (child, key) => child ? child.get(key) : undefined
 const setImmutable = (child, key, value) => child.set(key, value)
 
 const namespacedReducer = combineReducers(
@@ -22,5 +22,5 @@ const namespacedReducer = combineReducers(
 )
 
 export default function mainReducer(state, action) {
-  return namespacedReducer(state || void 0, action)
+  return namespacedReducer(state || undefined, action)
 }

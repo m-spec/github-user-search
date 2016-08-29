@@ -1,4 +1,4 @@
-/* eslint-disable no-undef no-console */
+/* eslint-disable no-undef, no-console */
 import store from '@redux/store'
 
 // On uncaught errors, read up the store state and send it out.
@@ -6,6 +6,4 @@ import store from '@redux/store'
 window.onerror = () => {
   const serialized = store.getState().toJS()
   console.info(serialized)
-  // store.dispatch(action)
-  // document.getElementById("root").innerHTML = "ERROR YO"
 }

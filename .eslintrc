@@ -7,11 +7,21 @@
             "experimentalObjectRestSpread": true
         }
     },
+    "env": {
+        "browser": true,
+        "mocha": true
+    },
     "extends": "airbnb",
     "rules": {
         "semi": ["error", "never"],
         "comma-dangle": ["error", "never"],
         "spaced-comment": "off",
-        "padded-blocks": "off"
+        "padded-blocks": "off",
+        "arrow-body-style": ["error", "as-needed"],
+        "no-confusing-arrow": "off",
+        "react/jsx-filename-extension": "off",
+
+        "import/no-extraneous-dependencies": "off",
+        "import/no-unresolved": "off"
     }
 }

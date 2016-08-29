@@ -1,6 +1,6 @@
-import { fork } from "redux-saga/effects"
-import ExampleSaga from "@modules/example/ExampleSaga"
-import UsersSaga from "@modules/users/UsersSaga"
+import { fork } from 'redux-saga/effects'
+import ExampleSaga from '@modules/example/ExampleSaga'
+import UsersSaga from '@modules/users/UsersSaga'
 
 
 //Import your module sagas here and fork them!

@@ -1,9 +1,9 @@
-import { describe, it } from 'mocha'
+import { describe, it, beforeEach } from 'mocha'
 import { expect } from 'chai'
 import { call } from 'redux-saga/effects'
 
-import { asyncRandom } from '../ExampleSaga'
 import { promisedRandomInteger } from '@utils/randomNumber'
+import { asyncRandom } from '../ExampleSaga'
 import { set } from '../ExampleState'
 
 describe('ExampleSaga', () => {

@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha'
 import { expect } from 'chai'
-import { initialState, dispatch} from '@test/state.js'
+import { initialState, dispatch } from '@test/state.js'
 
 import * as ExampleActions from '../ExampleState'
 
@@ -9,6 +9,7 @@ describe('ExampleState', () => {
   it('DEFAULT_VALUE', () => {
     expect(initialState.getIn(['example', 'value'])).to.equal(0)
   })
+
   it('INCREMENT', () => {
     const plusFive = dispatch(initialState, ExampleActions.increment(5))
     expect(plusFive.getIn(['example', 'value'])).to.equal(5)
@@ -24,12 +25,14 @@ describe('ExampleState', () => {
   })
 
   it('MULTIPLY', () => {})
+
   it('RESET', () => {
     const plusFiveState = dispatch(initialState, ExampleActions.increment(5))
     expect(plusFiveState.getIn(['example', 'value'])).to.equal(5)
     const resetState = dispatch(plusFiveState, ExampleActions.reset())
     expect(resetState.getIn(['example', 'value'])).to.equal(0)
   })
+
   it('RANDOM', () => {
     //no-op, tested in ExampleSaga
   })
