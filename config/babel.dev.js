@@ -25,4 +25,4 @@ module.exports = {
       { "src": "./src/utils", "expose": "@utils"}
     ]]
   ])
-};
+}

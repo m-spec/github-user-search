@@ -1,8 +1,8 @@
-var path = require('path');
-var autoprefixer = require('autoprefixer');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
+var path = require('path')
+var autoprefixer = require('autoprefixer')
+var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
 
 var paths = {
     appSrc: path.resolve(__dirname, "..", "src"),
@@ -81,11 +81,10 @@ module.exports = {
     ]
   },
   eslint: {
-    configFile: path.join(__dirname, 'eslint.js'),
-    useEslintrc: false
+    useEslintrc: true
   },
   postcss: function() {
-    return [autoprefixer];
+    return [autoprefixer]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -98,4 +97,4 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin()
   ]
-};
+}

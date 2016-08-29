@@ -1,7 +1,7 @@
-import {connect} from 'react-redux';
-import AppView from './AppView';
+import { connect } from 'react-redux'
+import AppView from './AppView'
 
-//Top level container, add stuff as needed
+// Top level container, add stuff as needed
 export default connect(
-  state => ({})
-)(AppView);
+  () => ({})
+)(AppView)
