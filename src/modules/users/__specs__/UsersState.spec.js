@@ -38,4 +38,5 @@ describe('UsersState', () => {
 
 	it("REMOVE_USER", () => { expect("Still undone!").to.equal("TODO")})
 	it("UPDATE_USER", () => { expect("Still undone!").to.equal("TODO")})
+	it("REQUEST_USER", () => { expect("Still undone!").to.equal("TODO")})
 });

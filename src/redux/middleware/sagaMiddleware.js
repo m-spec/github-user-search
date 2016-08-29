@@ -1,12 +1,8 @@
 import createSagaMiddleware from "redux-saga"
-import ExampleSaga from "@modules/example/ExampleSaga"
+import RootSaga from "../rootSaga"
 
 const sagaMiddleware = createSagaMiddleware()
 
-
-
-
-
-export const runSaga = () => sagaMiddleware.run(ExampleSaga)
+export const runSaga = () => sagaMiddleware.run(RootSaga)
 export default sagaMiddleware
 

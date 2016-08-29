@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, browserHistory} from "react-router"
+import {Router, Route, browserHistory, Redirect} from "react-router"
 import { Provider } from "react-redux"
 
 import AppContainer from "@modules/AppContainer"
@@ -15,8 +15,10 @@ const App = () => {
 		<Provider store={store}>
 			<Router history={browserHistory}>
 			    <Route path="/" component={AppContainer}>
-			      <Route path="*" component={ExampleContainer}/>
+			      <Route path="users" component={ExampleContainer}/>
 			    </Route>
+
+			    <Redirect from="*" to="/users"/>
 			</Router>
 		</Provider>
 	)
