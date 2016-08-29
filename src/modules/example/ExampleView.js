@@ -1,4 +1,4 @@
-import React, { Proptypes } from 'react'
+import React, { PropTypes } from 'react'
 // import "./example.css"
 
 const ExampleView = ({ value, ...actions }) => (
@@ -19,7 +19,7 @@ const ExampleView = ({ value, ...actions }) => (
 )
 
 ExampleView.propTypes = {
-  value: Proptypes.number
+  value: PropTypes.number
 }
 
 export default ExampleView

@@ -1,4 +1,4 @@
-import React, { Proptypes } from 'react'
+import React, { PropTypes } from 'react'
 
 //Top level rendering component, use to render logic before route rendering takes place
 const AppView = ({ children }) => (
@@ -8,7 +8,7 @@ const AppView = ({ children }) => (
 )
 
 AppView.propTypes = {
-  children: Proptypes.array
+  children: PropTypes.object
 }
 
 export default AppView
