@@ -19,6 +19,7 @@ module.exports = {
     ["module-alias", [
       { "src": "./test", "expose": "@test"},
       { "src": "./src/modules", "expose": "@modules"},
+      { "src": "./src/models", "expose": "@models" },
       { "src": "./src/components", "expose": "@components"},
       { "src": "./src/redux", "expose": "@redux"},
       { "src": "./src/utils", "expose": "@utils"}

@@ -1,5 +1,6 @@
 var path = require('path')
 var autoprefixer = require('autoprefixer')
+var nested = require('postcss-nested')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
@@ -84,7 +85,7 @@ module.exports = {
     useEslintrc: true
   },
   postcss: function() {
-    return [autoprefixer]
+    return [autoprefixer, nested]
   },
   plugins: [
     new HtmlWebpackPlugin({

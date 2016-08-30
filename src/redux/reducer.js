@@ -2,10 +2,10 @@ import { Map } from 'immutable'
 import { combineReducers } from 'redux-immutable'
 
 // Import reducers from modules here
-import ExampleState from '@modules/example/ExampleState'
+import UsersState from '@modules/users/UsersState'
 
 const reducers = {
-  example: ExampleState
+  users: UsersState
 }
 
 // initial state, accessor and mutator for supporting root-level

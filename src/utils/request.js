@@ -4,7 +4,6 @@ const request = axios.create({
   baseUrl: 'http://api.randomuser.me'
 })
 
-
 export function get(...args) {
   return new Promise((resolve, reject) => {
     request.get(...args)

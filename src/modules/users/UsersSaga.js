@@ -1,16 +1,20 @@
 import { takeEvery } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
 
-// import {REQUEST_USER, addUser} from './UserState'
-import { INCREMENT, set } from '@modules/example/ExampleState'
 import { get } from '@utils/request'
+import { REQUEST_USER, addUser, requestUserFailed } from './UsersState'
 
 
 export function* requestUser() {
-  yield call(get, 'https://randomuser.me/api')
-  yield put(set(12))
+  try {
+    const response = yield call(get, 'http://api.randomuser.me/?inc=name,gender,location,picture&noinfo')
+    const user = response && response.results && response.results[0]
+    yield put(addUser(user))
+  } catch (e) {
+    yield put(requestUserFailed(e))
+  }
 }
 
 export default function* UserSaga() {
-  yield* takeEvery(INCREMENT, requestUser)
+  yield* takeEvery(REQUEST_USER, requestUser)
 }
