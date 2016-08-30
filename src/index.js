@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 
 import AppContainer from '@modules/AppContainer'
 import '@utils/errorListener'
-// import ExampleContainer from '@modules/example/ExampleContainer'
 import UsersContainer from '@modules/users/UsersContainer'
 import store from './redux/store'
 
