@@ -1,7 +1,8 @@
 ## YAB
 
 > This is my ~~rifle~~ react-redux-boilerplate. There are many like it, but this one is mine.
-> - Random JS developer in our midst
+
+>\- Random JS developer in our midst
 
 Including:
 

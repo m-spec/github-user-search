@@ -1,0 +1,12 @@
+.card {
+  &-container {
+    background: lightgray;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+  }
+
+  &-title {
+    text-transform: capitalize;
+  }
+}
