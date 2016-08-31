@@ -44,6 +44,6 @@ export function addUser(user) {
 export function requestUserFailed(e) {
   return {
     type: REQUEST_USER_FAILED,
-    payload: e.message && e
+    payload: e.message || e
   }
 }

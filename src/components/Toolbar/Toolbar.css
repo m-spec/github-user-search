@@ -1,0 +1,13 @@
+.toolbar {
+  margin-bottom: 1rem;
+  height: 54px;
+  background: #8bc34a;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, .2);
+  display: flex;
+  align-items: center;
+
+  &-title {
+    color: white;
+    margin-left: 1rem;
+  }
+}
