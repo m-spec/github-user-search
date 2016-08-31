@@ -22,7 +22,7 @@ export default function UsersStateReducer(state = initialState, action = {}) {
     case REQUEST_USER:
       return state.set('fetchingUser', true)
     case REQUEST_USER_FAILED:
-      return state.set('fetchUserError', true)
+      return state.set('fetchUserError', action.payload)
     default:
       return state
   }
@@ -44,6 +44,6 @@ export function addUser(user) {
 export function requestUserFailed(e) {
   return {
     type: REQUEST_USER_FAILED,
-    payload: e.message
+    payload: e.message && e
   }
 }
