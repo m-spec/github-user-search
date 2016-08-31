@@ -1,5 +1,5 @@
 module.exports = {
-  babelrc: false,
+  babelrc: true,
   cacheDirectory: true,
   presets: [
     'babel-preset-es2015',
@@ -16,14 +16,6 @@ module.exports = {
       helpers: false,
       polyfill: false,
       regenerator: true
-    }],
-    ["module-alias", [
-      { "src": "./test", "expose": "@test"},
-      { "src": "./src/modules", "expose": "@modules"},
-      { "src": "./src/models", "expose": "@models" },
-      { "src": "./src/components", "expose": "@components"},
-      { "src": "./src/redux", "expose": "@redux"},
-      { "src": "./src/utils", "expose": "@utils"}
-    ]]
+    }]
   ])
 }
