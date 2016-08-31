@@ -32,7 +32,7 @@ describe('UsersState', () => {
       const failureState = dispatch(
         initialState, UsersActions.requestUserFailed({ message: 'test failure' }
       ))
-      expect(failureState.getIn(['users', 'fetchUserError'])).to.equal(true)
+      expect(failureState.getIn(['users', 'fetchUserError'])).to.equal('test failure')
     })
   })
 })

@@ -1,0 +1,28 @@
+.loading-indicator-container {
+  width: 128px;
+  height: 128px;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+
+  .spinner {
+    border: 5px solid skyblue;
+    border-bottom: 5px solid transparent;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    animation-duration: 1s;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
