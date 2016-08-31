@@ -29,13 +29,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['', '.js', '.json'],
-    alias: {
-      "@components": "./src/components",
-      "@modules": "./src/modules",
-      "@redux": "./src/redux",
-      "@utils": "./src/utils",
-      "@test": "./test",
-    }
+
   },
   module: {
     preLoaders: [
