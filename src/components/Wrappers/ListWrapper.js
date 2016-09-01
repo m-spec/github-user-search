@@ -1,11 +1,9 @@
 import React, { PropTypes } from 'react'
 import TextWrapper from '@components/Wrappers/TextWrapper'
-import LoadingIndicator from '@components/LoadingIndicator/LoadingIndicator'
 
 const ListWrapper = (props) => (
   <div>
-    {props.isLoading && <LoadingIndicator />}
-    { props.children ? props.children : (
+    { props.children && props.children.size ? props.children : (
       <TextWrapper>{props.emptyText ? props.emptyText : 'Empty'}</TextWrapper>
     )}
   </div>
@@ -13,7 +11,6 @@ const ListWrapper = (props) => (
 
 ListWrapper.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  isLoading: PropTypes.bool,
   emptyText: PropTypes.string
 }
 

@@ -1,17 +1,24 @@
 .button {
-  display: inline-block;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: #03a9f4;
   color: white;
   margin-left: 1rem;
-  padding: 8px;
   min-width: 80px;
+  min-height: 36px;
   cursor: pointer;
   text-transform: uppercase;
   font-size: .7rem;
   box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
-  transition: box-shadow .3s;
+  transition: all .3s;
+
+  &.loading {
+    background-color: #E0E0E0;
+    color: #9E9E9E;
+    cursor: default;
+  }
 
   &:hover {
     box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.2);

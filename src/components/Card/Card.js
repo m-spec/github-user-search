@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react'
 import './Card.css'
 
-const Card = ({ picture, pictureAlt, title, subtitle }) => (
+const Card = ({ picture, title, subtitle }) => (
   <div className="card">
     <div className="card-container">
       <div className="card-image-container">
-        <img alt={pictureAlt} src={picture} />
+        <div className="card-image" style={{ background: `url("${picture}")` }} />
       </div>
       <div className="card-content-container">
         <div className="card-title">{title}</div>

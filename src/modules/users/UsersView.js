@@ -5,31 +5,41 @@ import Toolbar from '@components/Toolbar/Toolbar'
 import Button from '@components/Button/Button'
 import PlainWrapper from '@components/Wrappers/PlainWrapper'
 import ListWrapper from '@components/Wrappers/ListWrapper'
+import Filter from '@components/Filter/Filter'
 
-const UsersView = ({ usersList, actions, fetchingUser }) => (
+const UsersView = ({ usersList, actions, fetchingUser, userFilters }) => (
   <PlainWrapper>
     <Toolbar title="Random users">
-      <Button onClick={actions.requestUser}>New user</Button>
+      <Button isLoading={fetchingUser} onClick={actions.requestUser}>New user</Button>
+      <Filter
+        title="Gender"
+        name="gender"
+        onChange={actions.setUserFilters}
+        options={[['all', 'all'], ['male', '♂'], ['female', '♀']]}
+        selected={userFilters.gender ? userFilters.gender : 'all'}
+      />
     </Toolbar>
-    <ListWrapper emptyText="No users" isLoading={fetchingUser}>
-      {usersList.size > 0 ? usersList.map((user, index) => (
-        <Card
-          key={index}
-          picture={user.picture.large}
-          pictureAlt="user"
-          title={`${user.firstName} ${user.lastName}`}
-          subtitle={`${user.location.street} ${user.location.postcode}
-            ${user.location.city.toUpperCase()}`}
-        />
-    )) : null }
+    <ListWrapper emptyText="No users">
+      { usersList.filter((user) => userFilters.gender === 'all' || userFilters.gender === user.gender)
+        .map((user, index) => (
+          <Card
+            key={index}
+            picture={user.picture.large}
+            pictureAlt="user"
+            title={`${user.firstName} ${user.lastName}`}
+            subtitle={`${user.location.street} ${user.location.postcode}
+              ${user.location.city.toUpperCase()}`}
+          />
+      ))}
     </ListWrapper>
   </PlainWrapper>
-  )
+)
 
 UsersView.propTypes = {
   usersList: PropTypes.instanceOf(immutable.List).isRequired,
   actions: PropTypes.object.isRequired,
-  fetchingUser: PropTypes.bool.isRequired
+  fetchingUser: PropTypes.bool.isRequired,
+  userFilters: PropTypes.object
 }
 
 export default UsersView
