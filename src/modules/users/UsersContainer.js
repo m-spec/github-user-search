@@ -7,7 +7,8 @@ import * as UserActions from './UsersState'
 export default connect(
   state => ({
     usersList: state.getIn(['users', 'usersList']),
-    fetchingUser: state.getIn(['users', 'fetchingUser'])
+    fetchingUser: state.getIn(['users', 'fetchingUser']),
+    userFilters: state.getIn(['users', 'userFilters'])
   }),
   dispatch => {
     const actions = bindActionCreators(UserActions, dispatch)

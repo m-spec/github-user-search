@@ -12,10 +12,12 @@
     .card-image-container {
       width: 128px;
       height: 128px;
-      display: inline-block;
+      background: #efefef;
 
-      img {
+      .card-image {
         border-radius: 5px 0 0 5px;
+        width: 128px;
+        height: 128px;
       }
     }
 
