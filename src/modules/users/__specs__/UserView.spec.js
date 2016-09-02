@@ -44,9 +44,9 @@ describe('UsersView', () => {
     )
   })
 
-  it('has toolbar wiht button with correct action', () => {
+  it('has toolbar with button with correct action', () => {
     const toolBar = emptyWrapper.find(Toolbar)
-    const toolBarButton = toolBar.find(Button)
+    const toolBarButton = toolBar.find(Button).first()
     toolBarButton.simulate('click')
     expect(actions.requestUser).to.have.property('callCount', 1)
   })

@@ -12,7 +12,7 @@ const initialState = new Map({
   usersList: new List(),
   fetchingUser: false,
   fetchUserError: false,
-  userFilters: { gender: 'all' }
+  userFilters: new Map({ gender: 'all' })
 })
 
 export default function UsersStateReducer(state = initialState, action = {}) {
@@ -26,7 +26,7 @@ export default function UsersStateReducer(state = initialState, action = {}) {
     case REQUEST_USER_FAILED:
       return state.set('fetchUserError', action.payload)
     case SET_USER_FILTERS:
-      return state.set('userFilters', action.payload)
+      return state.setIn(['userFilters', action.payload.filter], action.payload.value)
     default:
       return state
   }
@@ -46,11 +46,12 @@ export function addUser(user) {
 }
 
 export function setUserFilters(name, value) {
-  const filter = {}
-  filter[name] = value
   return {
     type: SET_USER_FILTERS,
-    payload: filter
+    payload: {
+      filter: name,
+      value
+    }
   }
 }
 
