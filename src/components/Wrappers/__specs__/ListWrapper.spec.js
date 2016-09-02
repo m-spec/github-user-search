@@ -26,10 +26,11 @@ describe('ListWrapper', () => {
   it('Renders given children', () => {
     const wrapper = shallow(
       <ListWrapper emptyText="empty">
-        <div className="test-child" />)}
+        <div className="test-child" />
+        <div className="test-child" />
       </ListWrapper>
     )
 
-    expect(wrapper.find('.test-child').length).to.equal(1)
+    expect(wrapper.find('.test-child').length).to.equal(2)
   })
 })

@@ -16,7 +16,7 @@ const UsersView = ({ usersList, actions, fetchingUser, gender, saveState, restor
         name="gender"
         onChange={actions.setUserFilters}
         options={[['all', 'all'], ['male', '♂'], ['female', '♀']]}
-        selected={gender || 'all'}
+        selected={gender}
       />
       <Button onClick={saveState}>Save app state</Button>
       <Button onClick={restoreState}>Restore app state</Button>
