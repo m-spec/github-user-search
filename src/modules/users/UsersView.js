@@ -20,7 +20,8 @@ const UsersView = ({ usersList, actions, fetchingUser, userFilters }) => (
       />
     </Toolbar>
     <ListWrapper emptyText="No users">
-      { usersList.filter((user) => userFilters.gender === 'all' || userFilters.gender === user.gender)
+      { usersList.filter((user) =>
+        userFilters.gender === 'all' || userFilters.gender === user.gender)
         .map((user, index) => (
           <Card
             key={index}
