@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
 import TextWrapper from '@components/Wrappers/TextWrapper'
 
-const ListWrapper = (props) => (
+const ListWrapper = ({ children = [], emptyText = 'Empty' }) => (
   <div>
-    { props.children && props.children.size ? props.children : (
-      <TextWrapper>{props.emptyText ? props.emptyText : 'Empty'}</TextWrapper>
+    { children && (children.size || children.length) ? children : (
+      <TextWrapper>{emptyText}</TextWrapper>
     )}
   </div>
 )

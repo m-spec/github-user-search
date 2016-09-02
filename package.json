@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "rm .git/hooks/pre-commit; cp ./pre-commit.sh .git/hooks/pre-commit",
     "start": "node ./scripts/start.js",
     "build": "node ./scripts/build.js",
     "test": "mocha 'src/**/__specs__/*.spec.js'",
-    "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'"
+    "test:watch": "chokidar 'src/**/*.js' 'test/**/*.js' -c 'npm test'",
+    "lint": "./node_modules/eslint/bin/eslint.js src"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

@@ -15,4 +15,10 @@ knownRecordTypes.forEach((Type, name) => {
 
 fromJS.User = UserFromJS
 
+//Rootstate represents the whole application state.
+//The fromJS is for rehydrating the application from JSON.
+fromJS.RootState = (any) => fromJS(any)
+  .updateIn(['users', 'usersList'], usersList => usersList.map(fromJS.User))
+
 export default immutable
+

@@ -7,7 +7,7 @@ import PlainWrapper from '@components/Wrappers/PlainWrapper'
 import ListWrapper from '@components/Wrappers/ListWrapper'
 import Filter from '@components/Filter/Filter'
 
-const UsersView = ({ usersList, actions, fetchingUser, userFilters }) => (
+const UsersView = ({ usersList, actions, fetchingUser, gender, saveState, restoreState }) => (
   <PlainWrapper>
     <Toolbar title="Random users">
       <Button isLoading={fetchingUser} onClick={actions.requestUser}>New user</Button>
@@ -16,17 +16,18 @@ const UsersView = ({ usersList, actions, fetchingUser, userFilters }) => (
         name="gender"
         onChange={actions.setUserFilters}
         options={[['all', 'all'], ['male', '♂'], ['female', '♀']]}
-        selected={userFilters.gender ? userFilters.gender : 'all'}
+        selected={gender || 'all'}
       />
+      <Button onClick={saveState}>Save app state</Button>
+      <Button onClick={restoreState}>Restore app state</Button>
     </Toolbar>
     <ListWrapper emptyText="No users">
       { usersList.filter((user) =>
-        userFilters.gender === 'all' || userFilters.gender === user.gender)
+        gender === 'all' || gender === user.gender)
         .map((user, index) => (
           <Card
             key={index}
             picture={user.picture.large}
-            pictureAlt="user"
             title={`${user.firstName} ${user.lastName}`}
             subtitle={`${user.location.street} ${user.location.postcode}
               ${user.location.city.toUpperCase()}`}
@@ -40,7 +41,9 @@ UsersView.propTypes = {
   usersList: PropTypes.instanceOf(immutable.List).isRequired,
   actions: PropTypes.object.isRequired,
   fetchingUser: PropTypes.bool.isRequired,
-  userFilters: PropTypes.object
+  gender: PropTypes.string,
+  saveState: PropTypes.func,
+  restoreState: PropTypes.func
 }
 
 export default UsersView
