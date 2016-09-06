@@ -1,32 +1,29 @@
-## YAB
+## GitHub user search
 
-> This is my ~~rifle~~ react-redux-boilerplate. There are many like it, but this one is mine. - Random JS developer in our midst
+Simple app for searching users from GitHub using their api
 
-Including:
-
+Tech:
 - React
 - Redux
 - Redux saga
 - ImmutableJS
+- Webpack
 
 Testing for all files with mocha / enzyme.
 
-##Structure and what goes where?
+## Getting started
+1. `npm install`
+2. `npm start`
 
-TODO Folder structure
+### Testing
+run once:
+`npm run test`
+watch changes:
+`npm run test:watch`
 
-##Testing
-
-npm run test
-npm run test:watch
-
-##Build
+### Build
 
 npm run build
-
 builds to ./build
 
-WIP.
-
-
-Somewhat and sometimes quite strongly inspired by the [pepperoni-app-kit](https://github.com/futurice/pepperoni-app-kit) (Loop changed for saga though).
+Built on [YAB](https://github.com/maxmik/yetanotherboilr)
