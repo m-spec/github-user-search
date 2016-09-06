@@ -11,19 +11,19 @@ Tech:
 
 Testing for all files with mocha / enzyme.
 
-## Getting started
+### Getting started
 1. `npm install`
 2. `npm start`
 
 ### Testing
-run once:
+run once with
 `npm run test`
-watch changes:
+ or watch changes with
 `npm run test:watch`
 
 ### Build
 
-npm run build
-builds to ./build
+`npm run build`
+builds production version to `./build`
 
 Built on [YAB](https://github.com/maxmik/yetanotherboilr)
