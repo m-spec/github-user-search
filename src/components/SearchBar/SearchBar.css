@@ -1,0 +1,28 @@
+.search-bar {
+  height: 64px;
+  padding: 0 2rem;
+  background: #fff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1);
+  display: flex;
+  align-items: center;
+
+  .material-icons {
+    color: rgba(0, 0, 0, 0.34);
+    width: 24px;
+    height: 24px;
+  }
+
+  input {
+    color: rgba(0, 0, 0, .54);
+    margin-left: 1rem;
+    width: calc(100% - 1rem - 24px);
+    height: 100%;
+    font-size: 1rem;
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

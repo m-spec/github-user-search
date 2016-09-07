@@ -1,0 +1,9 @@
+.results-container {
+  padding: 2rem;
+
+  .no-results-text {
+    padding: 0;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, .36);
+  }
+}

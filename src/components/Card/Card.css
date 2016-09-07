@@ -1,11 +1,20 @@
 .card {
   display: inline-block;
+  margin: 0 1rem 1rem 0;
+  width: calc((100%) / 4 - 1rem);
+
+  &:nth-child(4n+4) {
+    margin: 0 0 1rem 0;
+  }
+
+  &:hover {
+    transform: perspective(100vh) rotateX(10deg);
+  }
 
   &-container {
-    width: 300px;
+    width: 100%;
     background: white;
-    margin: 1rem;
-    border-radius: 5px;
+    border-radius: 2px;
     box-shadow: 0px 3px 5px rgba(0,0,0,.1);
     display: flex;
 
@@ -15,7 +24,7 @@
       background: #efefef;
 
       .card-image {
-        border-radius: 5px 0 0 5px;
+        border-radius: 2px 0 0 2px;
         width: 128px;
         height: 128px;
       }
@@ -29,6 +38,8 @@
 
   &-title {
     font-size: 1rem;
+    color: #8bc34a;
+    text-decoration: none;
     margin-bottom: .5rem;
     text-transform: capitalize;
   }

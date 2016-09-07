@@ -3,6 +3,7 @@ import './Toolbar.css'
 
 const Toolbar = (props) => (
   <div className="toolbar">
+    <img src="img/ic_search_github_white.png" alt="logo" />
     <div className="toolbar-title">
       { props.title }
     </div>

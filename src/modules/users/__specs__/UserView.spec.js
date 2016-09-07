@@ -2,19 +2,19 @@ import React from 'react'
 import { describe, it, beforeEach } from 'mocha'
 import { expect } from 'chai'
 import { shallow } from 'enzyme'
-import { spy } from 'sinon'
+import sinon from 'sinon'
 import { List } from 'immutable'
 
-import Toolbar from '@components/Toolbar/Toolbar'
-import Button from '@components/Button/Button'
+import SearchBar from '@components/SearchBar/SearchBar'
 import Card from '@components/Card/Card'
 
 import UsersView from '../UsersView'
 
 function getUserRecordStub() {
   return {
-    picture: { large: '' },
-    location: { city: 'a' }
+    login: 'test',
+    html_url: 'test',
+    avatar_url: 'test.png'
   }
 }
 
@@ -24,8 +24,10 @@ describe('UsersView', () => {
   let wrapper
   let emptyWrapper
 
+  const valueText = 'text is the value'
+
   beforeEach(() => {
-    actions = { requestUser: spy() }
+    actions = { searchUsers: sinon.spy() }
 
     emptyWrapper = shallow(
       <UsersView
@@ -42,13 +44,6 @@ describe('UsersView', () => {
         fetchingUser={false}
       />
     )
-  })
-
-  it('has toolbar with button with correct action', () => {
-    const toolBar = emptyWrapper.find(Toolbar)
-    const toolBarButton = toolBar.find(Button).first()
-    toolBarButton.simulate('click')
-    expect(actions.requestUser).to.have.property('callCount', 1)
   })
 
   it('renders correct amount of cards', () => {

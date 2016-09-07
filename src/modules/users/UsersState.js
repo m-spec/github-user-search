@@ -2,9 +2,9 @@ import { Map, List } from 'immutable'
 import { fromJS } from '@utils/immutable'
 
 /* eslint-disable no-multi-spaces */
-export const REQUEST_USER        = 'Users/REQUEST_USER'
-export const REQUEST_USER_FAILED = 'Users/REQUEST_USER_FAILED'
-export const ADD_USER            = 'Users/ADD_USER'
+export const SEARCH_USERS        = 'Users/SEARCH_USERS'
+export const SEARCH_USERS_FAILED = 'Users/SEARCH_USERS_FAILED'
+export const ADD_USERS           = 'Users/ADD_USERS'
 export const SET_USER_FILTERS    = 'Users/SET_USER_FILTERS'
 /* eslint-enable no-multi-spaces */
 
@@ -17,13 +17,15 @@ const initialState = new Map({
 
 export default function UsersStateReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case ADD_USER:
+    case ADD_USERS:
       return state
         .set('fetchingUser', false)
-        .update('usersList', (list) => list.push(fromJS.User(action.payload)))
-    case REQUEST_USER:
+        .update('usersList', () => (
+          new List(action.payload.map((user) => fromJS.User(user)))
+        ))
+    case SEARCH_USERS:
       return state.set('fetchingUser', true)
-    case REQUEST_USER_FAILED:
+    case SEARCH_USERS_FAILED:
       return state.set('fetchUserError', action.payload)
     case SET_USER_FILTERS:
       return state.setIn(['userFilters', action.payload.filter], action.payload.value)
@@ -32,16 +34,17 @@ export default function UsersStateReducer(state = initialState, action = {}) {
   }
 }
 
-export function requestUser() {
+export function searchUsers(query) {
   return {
-    type: REQUEST_USER
+    type: SEARCH_USERS,
+    payload: query
   }
 }
 
-export function addUser(user) {
+export function addUsers(response = {}) {
   return {
-    type: ADD_USER,
-    payload: user
+    type: ADD_USERS,
+    payload: response.items
   }
 }
 
@@ -55,9 +58,9 @@ export function setUserFilters(name, value) {
   }
 }
 
-export function requestUserFailed(e) {
+export function searchUsersFailed(e) {
   return {
-    type: REQUEST_USER_FAILED,
+    type: SEARCH_USERS_FAILED,
     payload: e.message || e
   }
 }
