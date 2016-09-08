@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { saveState, restoreState } from '@utils/state'
 import UsersView from './UsersView'
 import * as UserActions from './UsersState'
 
@@ -8,13 +7,23 @@ export default connect(
   state => ({
     usersList: state.getIn(['users', 'usersList']),
     fetchingUser: state.getIn(['users', 'fetchingUser']),
-    gender: state.getIn(['users', 'userFilters', 'gender']),
-
-    saveState: () => saveState(state.toJS())
+    filter: state.getIn(['users', 'filter']).toJS(),
+    apiKey: state.getIn(['users', 'apiKey'])
   }),
   dispatch => {
-    const actions = bindActionCreators(UserActions, dispatch)
-    const restore = () => dispatch(restoreState())
-    return { actions, restoreState: restore }
+    const {
+      searchUsers,
+      setFilter,
+      setApiKey
+    } = bindActionCreators(UserActions, dispatch)
+
+    return { searchUsers, setFilter, setApiKey }
+  },
+  (state, dispatch, own) => {
+    const merged = {
+      searchUsers: () => dispatch.searchUsers(state.filter, state.apiKey),
+      setApiKey: (apiKey) => dispatch.setApiKey(apiKey)
+    }
+    return Object.assign({}, state, dispatch, own, merged)
   }
 )(UsersView)

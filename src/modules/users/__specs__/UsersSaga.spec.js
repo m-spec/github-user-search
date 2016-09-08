@@ -10,12 +10,14 @@ describe('UsersSaga', () => {
   let iterator
 
   beforeEach(() => {
-    iterator = searchUsersGenerator({ payload: 'test' })
+    iterator = searchUsersGenerator({
+      payload: { filters: { freetext: 'freetext', language: 'esperanto' }, apiKey: '' }
+    })
   })
 
-  it('request user from randomuser.me', () => {
+  it('search users from GitHub', () => {
     expect(iterator.next().value).to.deep.equal(
-      call(get, 'https://api.github.com/search/users?q=test')
+      call(get, 'https://api.github.com/search/users?q=freetext+language:esperanto+type:user&sort=followers')
     )
   })
 

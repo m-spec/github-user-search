@@ -1,20 +1,18 @@
 import React, { PropTypes } from 'react'
-import LoadingIndicator from '@components/LoadingIndicator/LoadingIndicator'
 import './Button.css'
 
-const Button = (props) => (
+const Button = ({ text = 'Button', onClick }) => (
   <a
-    className={props.isLoading ? 'button loading' : 'button'}
-    onClick={props.isLoading ? null : props.onClick}
+    className="button"
+    onClick={onClick}
   >
-    { props.isLoading ? <LoadingIndicator /> : props.children }
+    {text}
   </a>
 )
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool
+  text: PropTypes.string
 }
 
 export default Button

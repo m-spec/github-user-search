@@ -5,10 +5,7 @@ const Card = ({ picture, title, subtitle, link }) => (
   <div className="card">
     <div className="card-container">
       <div className="card-image-container">
-        <div
-          className="card-image"
-          style={{ background: `url("${picture}")`, backgroundSize: 'cover' }}
-        />
+        <img alt="user" className="card-image" src={picture} />
       </div>
       <div className="card-content-container">
         <div className="card-title"><a className="card-title" href={link}>{title}</a></div>

@@ -1,11 +1,28 @@
 .card {
   display: inline-block;
   margin: 0 1rem 1rem 0;
-  width: calc((100%) / 4 - 1rem);
+  width: calc(100% - 1rem);
 
-  &:nth-child(4n+4) {
-    margin: 0 0 1rem 0;
+  @media (min-width: 600px) and (max-width: 799px) {
+    width: calc((100%) / 2 - 1rem);
   }
+
+  @media (min-width: 800px) and (max-width: 1023px) {
+    width: calc((100%) / 3 - 1rem);
+
+    &:nth-child(3n+3) {
+      margin: 0 0 1rem 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    width: calc((100%) / 4 - 1rem);
+
+    &:nth-child(4n+4) {
+      margin: 0 0 1rem 0;
+    }
+  }
+
 
   &:hover {
     transform: perspective(100vh) rotateX(10deg);

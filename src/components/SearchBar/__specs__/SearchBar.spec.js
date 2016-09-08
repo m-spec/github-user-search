@@ -7,13 +7,19 @@ import sinon from 'sinon'
 import SearchBar from '../SearchBar'
 
 describe('SearchBar', () => {
-  const valueText = 'This is a searchbar, yo.'
+  const valueText = 'freetext goes here'
   let input
   let wrapper
   let keyDownSpy
   beforeEach(() => {
     keyDownSpy = sinon.spy()
-    wrapper = shallow(<SearchBar value={valueText} searchFunc={keyDownSpy} />)
+    wrapper = shallow(
+      <SearchBar
+        filter={{ freetext: valueText }}
+        searchFunc={keyDownSpy}
+        setFilter={(e) => e}
+      />
+    )
     input = wrapper.find('.search-input')
   })
   it('Has an input within!', () => {

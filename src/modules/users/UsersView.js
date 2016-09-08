@@ -6,13 +6,19 @@ import Toolbar from '@components/Toolbar/Toolbar'
 import PlainWrapper from '@components/Wrappers/PlainWrapper'
 import Results from '@components/Results/Results'
 import SearchBar from '@components/SearchBar/SearchBar'
+import ApiBar from '@components/ApiBar/ApiBar'
 
-const UsersView = ({ usersList, actions }) => (
+const UsersView = ({ usersList, searchUsers, setFilter, filter, apiKey, setApiKey }) => (
   <PlainWrapper>
-    <Toolbar title="GitHub user search" />
+    <Toolbar
+      title="GitHub user search"
+      personalApiKey={apiKey}
+    />
     <SearchBar
       placeholder="Search"
-      searchFunc={actions.searchUsers}
+      filter={filter}
+      searchFunc={searchUsers}
+      setFilter={setFilter}
     />
     <Results>
       { usersList.map((user, index) => (
@@ -25,16 +31,20 @@ const UsersView = ({ usersList, actions }) => (
         />
       ))}
     </Results>
+    {apiKey ? null : <ApiBar changeApiKey={setApiKey} />}
   </PlainWrapper>
 )
 
 UsersView.propTypes = {
   usersList: PropTypes.instanceOf(immutable.List).isRequired,
-  actions: PropTypes.object.isRequired,
+  searchUsers: PropTypes.func.isRequired,
+  setFilter: PropTypes.func.isRequired,
   fetchingUser: PropTypes.bool.isRequired,
-  gender: PropTypes.string,
+  filter: PropTypes.object,
   saveState: PropTypes.func,
-  restoreState: PropTypes.func
+  restoreState: PropTypes.func,
+  apiKey: PropTypes.string,
+  setApiKey: PropTypes.func.isRequired
 }
 
 export default UsersView

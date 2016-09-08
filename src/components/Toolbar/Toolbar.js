@@ -1,19 +1,17 @@
 import React, { PropTypes } from 'react'
 import './Toolbar.css'
 
-const Toolbar = (props) => (
+const Toolbar = ({ title }) => (
   <div className="toolbar">
     <img src="img/ic_search_github_white.png" alt="logo" />
     <div className="toolbar-title">
-      { props.title }
+      { title }
     </div>
-    { props.children }
   </div>
 )
 
 Toolbar.propTypes = {
-  title: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
+  title: PropTypes.string
 }
 
 export default Toolbar
