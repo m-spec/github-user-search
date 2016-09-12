@@ -27,3 +27,6 @@ run once with
 builds production version to `./build`
 
 Built on [YAB](https://github.com/maxmik/yetanotherboilr)
+
+## TODO
+- Login with GitHub credentials
